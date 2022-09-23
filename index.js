@@ -59,7 +59,7 @@ var hero =  {
 var stolenIdentity = hero.getSecretIdentity;
 
 console.log(hero.getSecretIdentity()); //John Doe
-console.log(stolenIdentity()); //Undefined
+console.log(stolenIdentity()); //Undefined, because "this" has different context
 
 // var stolenIdentity = hero.getSecretIdentity.bind(hero);
 

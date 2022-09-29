@@ -49,9 +49,9 @@ console.log(typeof typeof 1); //typeof("number"), so output is "string"
 
 // 5.- What is the output?
 var hero = {
-  _name: 'John Doe',
+  _student: 'John Doe',
   getSecretIdentity: function () {
-    return this._name;
+    return this._student;
   },
 };
 
@@ -77,3 +77,22 @@ const createPrinter = function () {
 
 const printer = createPrinter();
 printer(); //Still accesing the "muNumber" value even though is a callback function
+
+const Person = ({ name, age, job }) => {
+  var _name = name;
+  var _age = age;
+  var _job = job;
+
+  return {
+    getName: () => _name,
+    getAge: () => _age,
+    getJob: () => _job,
+
+    setJob: (newJob) => (_job = newJob),
+  };
+};
+
+const me = Person({ name: 'Shaun', age: 25, job: 'developer' });
+console.log(me.getJob());
+me.setJob('senior developer');
+console.log(me.getJob());

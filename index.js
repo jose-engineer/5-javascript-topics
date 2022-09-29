@@ -65,7 +65,7 @@ var hero = {
 // console.log(hero.getSecretIdentity()); //John Doe
 // console.log(stolenIdentity()); //John Doe
 
-//6.- Closure
+//6.- CLOSURE
 
 const createPrinter = function () {
   let myNumber = 42;
@@ -78,8 +78,10 @@ const createPrinter = function () {
 const printer = createPrinter();
 printer(); //Still accesing the "muNumber" value even though is a callback function
 
+//function that returns a person object (instead of creating a class)
 const Person = ({ name, age, job }) => {
-  var _name = name;
+  //Using object destructuring, instead of passing params
+  var _name = name; //private field
   var _age = age;
   var _job = job;
 
@@ -92,7 +94,10 @@ const Person = ({ name, age, job }) => {
   };
 };
 
-const me = Person({ name: 'Shaun', age: 25, job: 'developer' });
+const me = Person({ name: 'Shaun', age: 25, job: 'lawyer' });
+console.log(me.getName()); //available only trough getName() property (getter)
+console.log(me._name); //undefined beacuse it is private
+
 console.log(me.getJob());
 me.setJob('senior developer');
 console.log(me.getJob());

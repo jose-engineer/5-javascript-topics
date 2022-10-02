@@ -95,8 +95,8 @@ const Person = ({ name, age, job }) => {
 };
 
 const me = Person({ name: 'Shaun', age: 25, job: 'lawyer' });
-console.log(me.getName()); //available only trough getName() property (getter)
-console.log(me._name); //undefined beacuse it is private
+console.log(me.getName()); //available only through getName() property (getter)
+console.log(me._name); //undefined because it is private
 
 console.log(me.getJob());
 me.setJob('senior developer');

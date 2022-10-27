@@ -101,3 +101,24 @@ console.log(me._name); //undefined because it is private
 console.log(me.getJob());
 me.setJob('senior developer');
 console.log(me.getJob());
+
+//7.- SUM ALL ELEMENTS INSIDE AN ARRAY THAT CONTAINS NESTED ARRAYS
+function SumAllNumbers(arr) {
+  return arr.flat(Infinity).reduce((a, b) => a + b, 0);
+}
+
+function SumAllNumbers2(arr) {
+  var sum = 0;
+  for (var i = 0; i < arr.length; i++) {
+    if (typeof arr[i] == 'number') {
+      sum += arr[i];
+    } else if (arr[i] instanceof Array) {
+      //} else if(Array.isArray(arr[i])){
+      sum += SumAllNumbers2(arr[i]);
+    }
+  }
+  return sum;
+}
+
+let numbers = [1, [2], [2, 3, [4]]];
+console.log(SumAllNumbers2(numbers));
